@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Greeting Page</title>
+</head>
+
+<body>
+    <main>
+        <h1 id="heading">Welcome!</h1>
+
+        <label for="name">Enter Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name" />
+        <button onclick="show()">Greet Me</button>
+    </main>
+
+    <script>
+        const heading = document.getElementById("heading");
+        const nameInput = document.getElementById("name");
+
+        function show() {
+            if (!nameInput.value.trim()) {
+                heading.textContent = "Please enter your name";
+            } else {
+                heading.textContent = `Hello ${nameInput.value.trim()}!`;
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        main {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            /* deeper main shadow */
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            padding: 0.5rem;
+            width: 80%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            /* deeper input shadow */
+            transition: box-shadow 0.3s ease;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(38, 132, 255, 0.7);
+            /* bright blue glow */
+        }
+        
+        button {
+            padding: 0.6rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background-image: linear-gradient(to right, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(38, 132, 255, 0.5);
+            /* deeper button shadow */
+        }
+        
+        button:hover {
+            background-image: linear-gradient(to right, #2575fc, #6a11cb);
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(38, 132, 255, 0.7);
+            /* more intense on hover */
+        }
+    </style>
+</body>
+
+</html>

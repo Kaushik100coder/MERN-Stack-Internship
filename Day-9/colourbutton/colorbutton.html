@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Change Page Background Color</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s ease;
+            background-color: #f0f0f0;
+        }
+        
+        .main {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            gap: 15px;
+            border: 5px solid black;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            justify-content: center;
+        }
+        
+        .color-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: black 4px 4px 4px;
+            border: none;
+        }
+        
+        .color-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .color-box:active {
+            transform: translateY(2px);
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        
+        .reset-btn {
+            grid-column: span 4;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: black 2px 2px 2px 2px;
+        }
+        
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .reset-btn:active {
+            transform: translateY(2px);
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="color-box" style="background-color: red;" onclick="document.body.style.backgroundColor='red'"></div>
+        <div class="color-box" style="background-color: blue;" onclick="document.body.style.backgroundColor='blue'"></div>
+        <div class="color-box" style="background-color: green;" onclick="document.body.style.backgroundColor='green'"></div>
+        <div class="color-box" style="background-color: yellow;" onclick="document.body.style.backgroundColor='yellow'"></div>
+
+        <div class="color-box" style="background-color: orange;" onclick="document.body.style.backgroundColor='orange'"></div>
+        <div class="color-box" style="background-color: purple;" onclick="document.body.style.backgroundColor='purple'"></div>
+        <div class="color-box" style="background-color: cyan;" onclick="document.body.style.backgroundColor='cyan'"></div>
+        <div class="color-box" style="background-color: magenta;" onclick="document.body.style.backgroundColor='magenta'"></div>
+
+        <div class="color-box" style="background-color: lime;" onclick="document.body.style.backgroundColor='lime'"></div>
+        <div class="color-box" style="background-color: pink;" onclick="document.body.style.backgroundColor='pink'"></div>
+        <div class="color-box" style="background-color: teal;" onclick="document.body.style.backgroundColor='teal'"></div>
+        <div class="color-box" style="background-color: brown;" onclick="document.body.style.backgroundColor='brown'"></div>
+
+        <button class="reset-btn" onclick="document.body.style.backgroundColor='white'">Reset Background</button>
+    </div>
+
+</body>
+
+</html>

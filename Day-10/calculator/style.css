@@ -1,0 +1,92 @@
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .calculator {
+            background: #a0a0a1;
+            border-radius: 20px;
+            width: 320px;
+            padding: 20px;
+            box-shadow: 10px 10px 5px rgb(0, 0, 0);
+        }
+        
+        .display {
+            background: #000000;
+            color: white;
+            font-size: 2.5rem;
+            text-align: right;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .btn {
+            background: #333;
+            color: white;
+            font-size: 1.5rem;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.2s;
+        }
+        
+        .btn:hover {
+            background: #444;
+        }
+        
+        .btn.operator {
+            background: #f57c00;
+            color: white;
+        }
+        
+        .btn.equal {
+            background: #0d47a1;
+            color: white;
+        }
+        
+        .btn.zero {
+            grid-column: span 2;
+        }
+        
+        .btn {
+            background: #333;
+            color: white;
+            font-size: 1.5rem;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s ease-in-out;
+            /* Realistic 3D button look */
+            box-shadow: 0 5px 0 #111, 0 8px 15px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        
+        .btn:active {
+            top: 2px;
+            /* moves down slightly when pressed */
+            box-shadow: 0 2px 0 #111, 0 4px 6px
+        }
+        
+        .btn.operator,
+        .btn.equal {
+            box-shadow: 10px 10px 5px rgb(0, 0, 0);
+            /* Optional */
+        }

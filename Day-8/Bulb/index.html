@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bulb ON/OFF</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .bulb-box {
+            background-color: #111;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            width: 400px;
+            /* Wider container */
+        }
+        
+        .bulb-image {
+            width: 100%;
+            height: 300px;
+            /* Increased height */
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            background-color: #222;
+            border: 2px solid #333;
+        }
+        
+        .bulb-button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+        }
+        
+        .on-btn,
+        .off-btn {
+            background-color: #444;
+            box-shadow: 0 0 10px #222;
+        }
+        
+        .active-on {
+            background-color: #00ff5e;
+            box-shadow: 0 0 15px #00ff5e, 0 0 25px #00ff5e;
+        }
+        
+        .active-off {
+            background-color: #ff003c;
+            box-shadow: 0 0 15px #ff003c, 0 0 25px #ff003c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bulb-box">
+        <img id="bulb" class="bulb-image" src="Off.jpg" alt="Bulb Image">
+        <br>
+        <button id="onBtn" class="bulb-button on-btn" onclick="turnOn()">Turn ON</button>
+        <button id="offBtn" class="bulb-button off-btn" onclick="turnOff()">Turn OFF</button>
+    </div>
+
+    <script>
+        const bulb = document.getElementById('bulb');
+        const onBtn = document.getElementById('onBtn');
+        const offBtn = document.getElementById('offBtn');
+
+
+        function turnOn() {
+            bulb.src = 'ON.jpg';
+            onBtn.classList.add('active-on');
+            offBtn.classList.remove('active-off');
+        }
+
+        function turnOff() {
+            bulb.src = 'Off.jpg';
+            offBtn.classList.add('active-off');
+            onBtn.classList.remove('active-on');
+        }
+    </script>
+
+</body>
+
+</html>

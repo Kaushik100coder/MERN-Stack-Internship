@@ -1,0 +1,58 @@
+/* Whole page background */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #dbeafe, #e0f7fa);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main letter box */
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 90%;
+  border-left: 6px solid #1976d2;
+}
+
+h2 {
+  text-align: center;
+  color: #1565c0;
+  margin-bottom: 20px;
+}
+
+.section {
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.address {
+  background-color: #063dd4;
+}
+
+.subject {
+  background-color: #7fda08;
+  font-weight: bold;
+}
+
+.salutation {
+  background-color: #c006dd;
+}
+
+.body {
+  background-color: #350188;
+  line-height: 1.6;
+}
+
+.signature {
+  background-color: #0edd4c96;
+  color: #2e7d32;
+  font-weight: bold;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Selector</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="side-panel">
+            <div class="section">
+                <h3>Foreground (Cars)</h3>
+                <div class="image-options" id="foreground-options">
+                    <img src="images/bollide.png" alt="Bollide" onclick="setForegroundImage('images/bollide.png')" />
+                    <img src="images/huracaan.png" alt="Huracaan" onclick="setForegroundImage('images/huracaan.png')" />
+                    <img src="images/jesko.png" alt="Jesko" onclick="setForegroundImage('images/jesko.png')" />
+                    <img src="images/bugatti.png" alt="Bugatti" onclick="setForegroundImage('images/bugatti.png')" />
+                </div>
+            </div>
+
+            <!-- Replace ONLY the Background Section in index.html -->
+            <div class="section">
+                <h3>Background</h3>
+                <div class="image-options" id="background-options">
+                    <div class="color-box gradient1" onclick="setBackgroundGradient('linear-gradient(135deg, #ff9a9e, #fad0c4)')"></div>
+                    <div class="color-box gradient2" onclick="setBackgroundGradient('linear-gradient(135deg, #a18cd1, #fbc2eb)')"></div>
+                    <div class="color-box gradient3" onclick="setBackgroundGradient('linear-gradient(135deg, #fbc2eb, #a6c1ee)')"></div>
+                    <div class="color-box gradient4" onclick="setBackgroundGradient('linear-gradient(135deg, #84fab0, #8fd3f4)')"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="preview" id="preview-box">
+            <div class="foreground-box" id="foreground-box"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
