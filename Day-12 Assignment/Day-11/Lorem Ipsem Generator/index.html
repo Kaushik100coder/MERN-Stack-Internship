@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lorem Ipsum Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: green;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+        }
+        
+        label {
+            display: block;
+            margin-top: 15px;
+            text-align: left;
+        }
+        
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f1f1f1;
+            border: 1px solid red;
+            min-height: 100px;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Lorem Ipsum Generator</h2>
+    <div class="container">
+        <label>Paragraphs:</label>
+        <input type="range" id="paragraphs" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent=this.value">
+        <span>1</span>
+
+        <label>Words per Paragraph:</label>
+        <input type="range" id="words" min="5" max="100" value="10" oninput="this.nextElementSibling.textContent=this.value">
+        <span>10</span>
+
+        <label>Tag:</label>
+        <select id="tag">
+      <option value="p">p</option>
+      <option value="div">div</option>
+      <option value="span">span</option>
+      <option value="h1">h1</option>
+      <option value="section">section</option>
+      <option value="h3">h3</option>
+      <option value="pre">pre</option>
+    </select>
+
+        <label><input type="checkbox" id="includeHTML" checked> Include HTML</label>
+
+        <button onclick="generateLorem()">Generate Lorem Ipsum</button>
+
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        const wordsList = [
+            "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing",
+            "elit", "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore",
+            "et", "dolore", "magna", "aliqua"
+        ];
+
+        function getRandomWord() {
+            return wordsList[Math.floor(Math.random() * wordsList.length)];
+        }
+
+        function generateParagraph(wordCount) {
+            const words = [];
+            for (let i = 0; i < wordCount; i++) {
+                words.push(getRandomWord());
+            }
+            return words.join(" ");
+        }
+
+        function generateLorem() {
+            const paraCount = parseInt(document.getElementById("paragraphs").value);
+            const wordsPerPara = parseInt(document.getElementById("words").value);
+            const tag = document.getElementById("tag").value;
+            const includeHTML = document.getElementById("includeHTML").checked;
+            const outputDiv = document.getElementById("output");
+
+            let result = "";
+
+            for (let i = 0; i < paraCount; i++) {
+                const text = generateParagraph(wordsPerPara);
+                if (includeHTML) {
+                    result += `<${tag}>${text}</${tag}>`;
+                } else {
+                    result += `${text}\n\n`;
+                }
+            }
+
+            if (includeHTML) {
+                outputDiv.innerHTML = result;
+            } else {
+                outputDiv.innerText = result;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

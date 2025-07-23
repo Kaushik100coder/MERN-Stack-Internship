@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+        
+        input[type="number"] {
+            width: 50px;
+        }
+        
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Password Generator</h2>
+        <label>Password Length: <input type="number" id="length" value="8" min="4" max="50" /></label><br><br>
+        <label><input type="checkbox" id="uppercase" checked /> Include Uppercase</label><br>
+        <label><input type="checkbox" id="lowercase" checked /> Include Lowercase</label><br>
+        <label><input type="checkbox" id="numbers" checked /> Include Numbers</label><br>
+        <label><input type="checkbox" id="symbols" checked /> Include Symbols</label><br><br>
+        <button onclick="generatePassword()">Generate</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function generatePassword() {
+            const length = document.getElementById('length').value;
+            const hasUpper = document.getElementById('uppercase').checked;
+            const hasLower = document.getElementById('lowercase').checked;
+            const hasNumber = document.getElementById('numbers').checked;
+            const hasSymbol = document.getElementById('symbols').checked;
+
+            const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const lowerChars = "abcdefghijklmnopqrstuvwxyz";
+            const numberChars = "0123456789";
+            const symbolChars = "!@#$%^&*_+:'.<>?/";
+
+            let allChars = "";
+            if (hasUpper) allChars += upperChars;
+            if (hasLower) allChars += lowerChars;
+            if (hasNumber) allChars += numberChars;
+            if (hasSymbol) allChars += symbolChars;
+
+            if (allChars.length === 0) {
+                document.getElementById('result').innerText = "Please select at least one character type.";
+                return;
+            }
+
+
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                const randIndex = Math.floor(Math.random() * allChars.length);
+                password += allChars[randIndex];
+            }
+
+            document.getElementById('result').innerText = "Generated Password: " + password;
+        }
+    </script>
+</body>
+
+</html>
